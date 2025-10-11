@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "Twitter Warmer",
+    "version": "1.0",
+    "description": "Automated Twitter activity simulator",
+    
+    "permissions": [
+      "storage",
+      "activeTab",
+      "tabs"
+    ],
+    
+    "host_permissions": [
+      "*://twitter.com/*",
+      "*://x.com/*"
+    ],
+    
+    "background": {
+      "service_worker": "background.js"
+    },
+    
+    "content_scripts": [
+      {
+        "matches": ["*://twitter.com/*", "*://x.com/*"],
+        "js": ["content.js"],
+        "run_at": "document_end"
+      }
+    ],
+    
+    "action": {
+      "default_popup": "popup.html",
+      "default_title": "Twitter Warmer"
+    }
+  }
